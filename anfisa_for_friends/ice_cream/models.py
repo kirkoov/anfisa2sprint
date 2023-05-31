@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from core.models import PublishedModel
 
@@ -10,17 +11,17 @@ class Category(PublishedModel):
         verbose_name='Слаг')
     output_order: models.PositiveSmallIntegerField = models.PositiveSmallIntegerField(
         default=100,
-        verbose_name='Порядок отображения')
+        verbose_name='порядок отображения')
 
     class Meta:
         verbose_name = 'категория'
-        verbose_name_plural = 'Категории'
+        verbose_name_plural = 'категории'
 
 
 class Topping(PublishedModel):
     slug: models.SlugField = models.SlugField(max_length=64,
         unique=True,
-        verbose_name='Слаг')
+        verbose_name='слаг')
 
     class Meta:
         verbose_name = 'топпинг'
@@ -28,6 +29,10 @@ class Topping(PublishedModel):
 
 
 class Wrapper(PublishedModel):
+    title: models.CharField = models.CharField(
+        max_length=256,
+        verbose_name='Название',
+        help_text='Уникальное название обёртки, не более 256 символов')
 
     class Meta:
         verbose_name = 'обёртка'
@@ -36,7 +41,7 @@ class Wrapper(PublishedModel):
 
 class IceCream(PublishedModel):
     description: models.TextField = models.TextField(
-        verbose_name='Описание')
+        verbose_name='описание')
     wrapper: models.OneToOneField = models.OneToOneField(
         Wrapper,
         on_delete=models.SET_NULL,
@@ -60,4 +65,4 @@ class IceCream(PublishedModel):
 
     class Meta:
         verbose_name = 'мороженое'
-        verbose_name_plural = 'мороженые'
+        verbose_name_plural = 'мороженое'
