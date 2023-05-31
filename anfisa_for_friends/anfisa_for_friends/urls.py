@@ -12,5 +12,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     import debug_toolbar  # type: ignore[import]
-    # Добавить к списку urlpatterns список адресов из приложения debug_toolbar:
     urlpatterns += (path('__debug__/', include(debug_toolbar.urls)),)
