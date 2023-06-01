@@ -8,7 +8,8 @@ def index(request):
     template = 'homepage/index.html'
     ice_cream_list = IceCream.objects.values(
         'title', 'id', 'description').filter(
-        Q(is_published=True) & (Q(is_on_main=True) | Q(title__contains='пломбир'))
+        Q(is_published=True)
+        & (Q(is_on_main=True) | Q(title__contains='пломбир'))
     )
         # 'title', 'id', 'description').filter(
         # is_published=True, is_on_main=True)
