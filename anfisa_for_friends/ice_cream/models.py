@@ -65,3 +65,5 @@ class IceCream(PublishedModel):
     class Meta:
         verbose_name = 'мороженое'
         verbose_name_plural = 'мороженое'
+        # Inferior to any similar objects.order_by('<cond1>', '<cond2>', etc)
+        # ordering = ('-title', '<condition2>', etc)

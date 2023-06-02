@@ -1,4 +1,4 @@
-from django.db.models import Q
+# from django.db.models import Q
 from django.shortcuts import render
 
 from ice_cream.models import IceCream
@@ -7,15 +7,22 @@ from ice_cream.models import IceCream
 def index(request):
     template = 'homepage/index.html'
     ice_cream_list = IceCream.objects.values(
-        'title', 'id', 'description').filter(
-        Q(is_published=True)
-        & (Q(is_on_main=True) | Q(title__contains='пломбир'))
-    )
-        # 'title', 'id', 'description').filter(
-        # is_published=True, is_on_main=True)
+            'id', 'title', 'description'
+        ).filter(
+            is_published=True, is_on_main=True
+        ).order_by('title')[1:4]
 
-        # 'title', 'id', 'description').exclude(is_published=False)
-    ## Условия для конкретной даты:
+    # Q(is_published=True)
+    # & (Q(is_on_main=True) | Q(title__contains='пломбир'))
+    # 'title', 'id', 'description').filter(
+    # is_published=True, is_on_main=True)
+    # 'title', 'id', 'description').exclude(is_published=False)
+
+    # categories = Category.objects.values(
+    #     'id', 'output_order', 'title').order_by(
+    #     'output_order', 'title')
+
+    # Условия для конкретной даты:
     # Post.objects.filter(pub_date__date=datetime.date(1890, 1, 1))
     # # Ранее первого января 1895 года:
     # Post.objects.filter(pub_date__date__lt=datetime.date(1895, 1, 1))
