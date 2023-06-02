@@ -8,7 +8,7 @@ class Category(PublishedModel):
         max_length=64,
         unique=True,
         verbose_name='Слаг')
-    output_order: models.PositiveSmallIntegerField = models.PositiveSmallIntegerField(
+    output_order: models.PositiveSmallIntegerField = models.PositiveSmallIntegerField(  # noqa: E501
         default=100,
         verbose_name='порядок отображения')
 
@@ -18,7 +18,8 @@ class Category(PublishedModel):
 
 
 class Topping(PublishedModel):
-    slug: models.SlugField = models.SlugField(max_length=64,
+    slug: models.SlugField = models.SlugField(
+        max_length=64,
         unique=True,
         verbose_name='слаг')
 

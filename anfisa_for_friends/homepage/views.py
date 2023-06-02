@@ -10,7 +10,7 @@ def index(request):
             'id', 'title', 'description'
         ).filter(
             is_published=True, is_on_main=True
-        ).order_by('title')[1:4]
+        ).order_by('title')[0:3]
 
     # Q(is_published=True)
     # & (Q(is_on_main=True) | Q(title__contains='пломбир'))

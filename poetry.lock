@@ -37,19 +37,19 @@ tests-no-zope = ["cloudpickle", "hypothesis", "mypy (>=1.1.1)", "pympler", "pyte
 
 [[package]]
 name = "cattrs"
-version = "23.1.1"
+version = "23.1.2"
 description = "Composable complex class support for attrs and dataclasses."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "cattrs-23.1.1-py3-none-any.whl", hash = "sha256:6558a4ed415bffb202993cdc8ce0ba5b919c6eab19b996251a61a3329f900d62"},
-    {file = "cattrs-23.1.1.tar.gz", hash = "sha256:7d7372fe0156f2868c6b8852e069a0cfa2b493b77850fc7353f45057ac5f5d2d"},
+    {file = "cattrs-23.1.2-py3-none-any.whl", hash = "sha256:b2bb14311ac17bed0d58785e5a60f022e5431aca3932e3fc5cc8ed8639de50a4"},
+    {file = "cattrs-23.1.2.tar.gz", hash = "sha256:db1c821b8c537382b2c7c66678c3790091ca0275ac486c76f3c8f3920e83c657"},
 ]
 
 [package.dependencies]
 attrs = ">=20"
 exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
-typing_extensions = {version = "*", markers = "python_version < \"3.11\""}
+typing_extensions = {version = ">=4.1.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 bson = ["pymongo (>=4.2.0,<5.0.0)"]
@@ -97,36 +97,36 @@ sqlparse = ">=0.2"
 
 [[package]]
 name = "django-stubs"
-version = "4.2.0"
+version = "4.2.1"
 description = "Mypy stubs for Django"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "django-stubs-4.2.0.tar.gz", hash = "sha256:93baff824f0a056e71036b423b942a74f07b909e45e3fa38185b910f597c5c08"},
-    {file = "django_stubs-4.2.0-py3-none-any.whl", hash = "sha256:d2c671989efb3f7b0fa91e461909ad5a5a52155fe7fe6d1f2058cb88e3afb123"},
+    {file = "django-stubs-4.2.1.tar.gz", hash = "sha256:8c15d5f7b05926805cfb25f2bfbf3509c37792fbd8aec5aedea358b85d8bccd5"},
+    {file = "django_stubs-4.2.1-py3-none-any.whl", hash = "sha256:66477bdba25407623f4079205e58f3c7265a4f0d8f7c9f540a6edc16f8883a5b"},
 ]
 
 [package.dependencies]
 django = "*"
-django-stubs-ext = ">=4.2.0"
-mypy = ">=0.980"
+django-stubs-ext = ">=4.2.1"
+mypy = ">=1.0.0"
 tomli = {version = "*", markers = "python_version < \"3.11\""}
 types-pytz = "*"
 types-PyYAML = "*"
 typing-extensions = "*"
 
 [package.extras]
-compatible-mypy = ["mypy (>=1.2.0,<1.3)"]
+compatible-mypy = ["mypy (>=1.3.0,<1.4)"]
 
 [[package]]
 name = "django-stubs-ext"
-version = "4.2.0"
+version = "4.2.1"
 description = "Monkey-patching and extensions for django-stubs"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "django-stubs-ext-4.2.0.tar.gz", hash = "sha256:7789f0caeca7152fef07ad6b94dec7310a05d0b8dab77f7979e19db0037b5127"},
-    {file = "django_stubs_ext-4.2.0-py3-none-any.whl", hash = "sha256:55b2e3077f883e0131a7596f8ff8b19f8fc3ca325a3318ccacf5331acb2601e4"},
+    {file = "django-stubs-ext-4.2.1.tar.gz", hash = "sha256:2696d6f7d8538341b060cffa9565c72ea797e866687e040b86d29cad8799e5fe"},
+    {file = "django_stubs_ext-4.2.1-py3-none-any.whl", hash = "sha256:4b6b63e49f4ba30d93ec46f87507648c99c9de6911e651ad69db7084fd5b2f4e"},
 ]
 
 [package.dependencies]
@@ -452,13 +452,13 @@ files = [
 
 [[package]]
 name = "typing-extensions"
-version = "4.6.2"
+version = "4.6.3"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "typing_extensions-4.6.2-py3-none-any.whl", hash = "sha256:3a8b36f13dd5fdc5d1b16fe317f5668545de77fa0b8e02006381fd49d731ab98"},
-    {file = "typing_extensions-4.6.2.tar.gz", hash = "sha256:06006244c70ac8ee83fa8282cb188f697b8db25bc8b4df07be1873c43897060c"},
+    {file = "typing_extensions-4.6.3-py3-none-any.whl", hash = "sha256:88a4153d8505aabbb4e13aacb7c486c2b4a33ca3b3f807914a9b4c844c471c26"},
+    {file = "typing_extensions-4.6.3.tar.gz", hash = "sha256:d91d5919357fe7f681a9f2b5b4cb2a5f1ef0a1e9f59c4d8ff0d3491e05c0ffd5"},
 ]
 
 [[package]]
