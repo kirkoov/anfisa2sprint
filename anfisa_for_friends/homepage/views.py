@@ -6,11 +6,32 @@ from ice_cream.models import IceCream
 
 def index(request):
     template = 'homepage/index.html'
+    # ice_cream_list = IceCream.objects.all()  # BAD if dot notaion is in the
+    # templates that help render the view.
+
+    # Mind you, a list of dicts is returned via the values():
+    # in the template, use the {{ ice_cream.category__title }} notation vs the
+    # dot one.
+    # ice_cream_list = IceCream.objects.values(
+    # 'id', 'title', 'category__title')  # I.e. selected fields
+    # VS all fields of the related model
+    # ice_cream_list = IceCream.objects.select_related('category')
+
     ice_cream_list = IceCream.objects.values(
-            'id', 'title', 'description'
-        ).filter(
-            is_published=True, is_on_main=True
-        ).order_by('title')[0:3]
+        'id',
+        'title',
+        'category__title',
+        'category__slug',
+        'category__output_order'
+    ).filter(
+        category__is_published=True
+    )
+
+    # ice_cream_list = IceCream.objects.values(
+    #         'id', 'title', 'description'
+    #     ).filter(
+    #         is_published=True, is_on_main=True
+    #     ).order_by('title')[0:3]
 
     # Q(is_published=True)
     # & (Q(is_on_main=True) | Q(title__contains='пломбир'))
@@ -32,5 +53,7 @@ def index(request):
     # Post.objects.filter(pub_date__month__gte=6)
     # # В первый квартал любого года:
     # Post.objects.filter(pub_date__quarter=1)
-    context = {'ice_cream_list': ice_cream_list}
+    context = {
+        'ice_cream_list': ice_cream_list,
+    }
     return render(request, template, context)
