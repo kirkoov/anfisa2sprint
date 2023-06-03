@@ -1,4 +1,4 @@
-from django.shortcuts import get_list_or_404, get_object_or_404, render
+from django.shortcuts import get_object_or_404, render
 
 from ice_cream.models import IceCream
 
@@ -7,8 +7,12 @@ def ice_cream_detail(request, pk):
     template = 'ice_cream/detail.html'
     # ice_cream = get_object_or_404(IceCream, pk=pk)
     ice_cream = get_object_or_404(
-        IceCream.objects.values('title', 'description').filter(
-            is_published=True),
+        # IceCream.objects.values('title', 'description').filter(
+        #     is_published=True),
+        # pk=pk)
+        IceCream.objects.filter(
+            is_published=True,
+            category__is_published=True),
         pk=pk)
     context = {
         'ice_cream': ice_cream,
@@ -18,7 +22,11 @@ def ice_cream_detail(request, pk):
 
 def ice_cream_list(request):
     template = 'ice_cream/list.html'
-    ice_cream_list = get_list_or_404(IceCream, is_published=True)
+    # ice_cream_list = get_list_or_404(IceCream, is_published=True)
+    ice_cream_list = IceCream.objects.select_related('category').filter(
+        is_published=True,
+        category__is_published=True
+    )
     context = {
         'ice_cream_list': ice_cream_list,
     }
