@@ -8,9 +8,11 @@ class Category(PublishedModel):
         max_length=64,
         unique=True,
         verbose_name='Слаг')
-    output_order: models.PositiveSmallIntegerField = models.PositiveSmallIntegerField(  # noqa: E501
-        default=100,
-        verbose_name='порядок отображения')
+    output_order: models.PositiveSmallIntegerField = (
+        models.PositiveSmallIntegerField(
+            default=100,
+            verbose_name='порядок отображения')
+    )
 
     class Meta:
         verbose_name = 'категория'
@@ -42,6 +44,15 @@ class Wrapper(PublishedModel):
 class IceCream(PublishedModel):
     description: models.TextField = models.TextField(
         verbose_name='описание')
+    output_order: models.PositiveSmallIntegerField = (
+        models.PositiveSmallIntegerField(
+            default=100,
+            verbose_name='порядок отображения')
+    )
+    price: models.DecimalField = models.DecimalField(
+        max_digits=5,
+        decimal_places=2
+    )
     wrapper: models.OneToOneField = models.OneToOneField(
         Wrapper,
         on_delete=models.SET_NULL,
@@ -67,4 +78,4 @@ class IceCream(PublishedModel):
         verbose_name = 'мороженое'
         verbose_name_plural = 'мороженое'
         # Inferior to any similar objects.order_by('<cond1>', '<cond2>', etc)
-        # ordering = ('-title', '<condition2>', etc)
+        ordering = ('output_order', 'title')

@@ -20,10 +20,11 @@ def index(request):
     ice_cream_list = IceCream.objects.values(
         'id',
         'title',
-        'category__title',
-        'category__slug',
-        'category__output_order'
+        'price',
+        'description'
     ).filter(
+        is_published=True,
+        is_on_main=True,
         category__is_published=True
     )
 
